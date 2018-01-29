@@ -1,7 +1,7 @@
 /*
  * NOTE:
- * - The use 
-ot render correctly for people reading the email in
+ * - The use of browser-specific styles (-moz-, -webkit-) should be avoided.
+ *   If used, they may not render correctly for people reading the email in
  *   a different browser than the one from which the email was sent.
  * - The use of state-dependent styles (like a:hover) don't work because they
  *   don't match at the time the styles are made explicit. (In email, styles
@@ -9,6 +9,7 @@ ot render correctly for people reading the email in
  */
 
 /* This is the overall wrapper, it should be treated as the `body` section. */
+
 .markdown-here-wrapper {
 }
 
@@ -19,18 +20,18 @@ ot render correctly for people reading the email in
 /* .markdown-here-wrapper[data-md-url*="mail.yahoo."] ul { color: red; } */
 
 pre, code {
-  font-size: 0.85em;
-  font-family: Consolas, Inconsolata, Courier, monospace;
+  font-family: Avenir, "PingFangSC-Light";
+
 }
 
 code {
-  margin: 0 0.15em;
-  padding: 0 0.3em;
-  white-space: pre-wrap;
-  border: 1px solid #EAEAEA;
-  background-color: #F8F8F8;
-  border-radius: 3px;
+  background-color: #f8f8f8;
+  padding: 0.2em 0.5em;
+  color:#c7254e;
+  font-size: 0.9em;
+  border-radius: 2px;
   display: inline; /* added to fix Yahoo block display of inline code */
+  white-space: pre-wrap;
 }
 
 pre {
@@ -41,8 +42,6 @@ pre {
 pre code {
   white-space: pre;
   overflow: auto; /* fixes issue #70: Firefox/Thunderbird: Code blocks with horizontal scroll would have bad background colour */
-  border-radius: 3px;
-  border: 1px solid #CCC;
   padding: 0.5em 0.7em;
   display: block !important; /* added to counteract the Yahoo-specific `code` rule; without this, code blocks in Blogger are broken */
 }
@@ -63,61 +62,62 @@ our syntax highlighting. */
 Note that we only use a top margin and not a bottom margin -- this prevents the
 "blank line" look at the top of the email (issue #243).
 */
-p {
+p{
   /* !important is needed here because Hotmail/Outlook.com uses !important to
-	 kill the margin in <p>. We need this to win. */
- text-align: justify;!important;
-	padding-top: 2px; 
-	padding-right: 20px; 
-	padding-left: 20px;
-	font-size: 15px; 
-	line-height: 30px; 
-	margin-bottom: 16px; 
-	color: rgb(43, 43, 43); 
-	border-right-width: 0px;
-	border-right-style: solid; 
-	border-right-color: rgb(232, 232, 232); 
-	font-family: Optima-Regular, PingFangTC-light; 
+     kill the margin in <p>. We need this to win. */
+  font-family: Avenir, "PingFangSC-Light" !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  line-height: 1.8em !important;
+  letter-spacing: 0.1em !important;
+  margin: 1em 1em !important; /* 增加段落边距 */
+  text-align: justify !important;
 }
 
 table, pre, dl, blockquote, q, ul, ol {
-  margin: 1.2em 0;
+  margin: 1.2em 0em;
 }
 
 ul, ol {
-  padding-left: 2em;!important;
-  font-family: Optima-Regular, PingFangTC-light;!important;
+  padding-left: 0em;
+  margin: 1.2em 2em;
+
 }
 
-li {
-  margin: 0.5em 0;!important;
-  font-size:15px !important;
-  line-height:30px !important;
-  letter-spacing:2px !important;
-px;
-  padding:0 10px;
+li{
+  margin: 0.2em 0;
+  font-family: Avenir, "PingFangSC-Light" !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  line-height: 1.8em !important;
+  letter-spacing: 0.1em !important;
+  margin: 0.2em 0.2em !important;
 }
 
-/* Space paragraphs in a list the same as the list itself. */
-li p {
-  /* Needs !important to override rule above. */
-  margin: 0.5em 0 !important;
+ul li {
+  margin: 0.2em 0;
+  font-family: Avenir, "PingFangSC-Light" !important;
+  font-size: 15px !important;
+  color: #333 !important;
+  line-height: 1.8em !important;
+  letter-spacing: 0.1em !important;
+  margin: 0.2em 0.2em !important;
 }
 
 /* Smaller spacing for sub-lists */
 ul ul, ul ol, ol ul, ol ol {
-  margin: 0;!important;
-  padding-left: 1em;!important;
+  margin: 0;
+  padding-left: 1em;
 }
 
 /* Use Roman numerals for sub-ordered-lists. (Like Github.) */
 ol ol, ul ol {
-  list-style-type: lower-roman;
+  list-style-type: circle;
 }
 
 /* Use letters for sub-sub-ordered lists. (Like Github.) */
 ul ul ol, ul ol ol, ol ul ol, ol ol ol {
-  list-style-type: lower-alpha;
+  list-style-type: square;
 }
 
 dl {
@@ -136,12 +136,23 @@ dl dd {
 }
 
 blockquote, q {
-  border-left: 1px solid ##686868;
-  padding: 0 1em;
+  border-left: 4px solid #3bb8af;
+  /* background-color: #fafafa;*/
+  padding: 0em; /* 删除内边距 */
+  margin: 0em 1em;
   color: #777;
   quotes: none;
-  padding-left:0px;
-  margin:0em 1em;
+}
+
+
+strong, b{
+  color: #3bb8af;
+}
+
+
+/* 设置引用文本颜色 */
+blockquote p {
+  color: rgb(119, 117, 117) !important
 }
 
 blockquote::before, blockquote::after, q::before, q::after {
@@ -152,21 +163,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1.3em 0 1em;
   padding: 0;
   font-weight: bold;
-  text-align:center;
+  letter-spacing: 0.1em !important;
 }
 
 h1 {
   font-size: 1.6em;
   border-bottom: 1px solid #ddd;
+  color: black;
 }
 
 h2 {
-  font-size: 1.0em;
+  font-size: 1.4em;
+  text-align: center;
   border-bottom: 1px solid #eee;
+  color: #3bb8af;
 }
 
 h3 {
-  font-size: 1.0em;
+  font-size: 1.3em;
 }
 
 h4 {
@@ -182,14 +196,12 @@ h6 {
   color: #777;
 }
 
-
 table {
-  padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 1em;
-  font: inherit;
+  font-size: .8em;
   border: 0;
+  font-family: Avenir, "PingFangSC-Light";
 }
 
 tbody {
@@ -204,6 +216,7 @@ table tr {
   background-color: white;
   margin: 0;
   padding: 0;
+
 }
 
 table tr:nth-child(2n) {
@@ -211,18 +224,13 @@ table tr:nth-child(2n) {
 }
 
 table tr th, table tr td {
-  font-size: 1em;
+  font-size: 0.8em;
   border: 1px solid #CCC;
   margin: 0;
   padding: 0.5em 1em;
 }
 
 table tr th {
-  font-weight: bold;
-  background-color: #F0F0F0;
-}
-
-.rich_media_content p {
-  font-size:14px !important;
-  line-height:34px !important;
+ font-weight: bold;
+ background-color: #F0F0F0;
 }
