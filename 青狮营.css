@@ -20,6 +20,8 @@
 /* .markdown-here-wrapper[data-md-url*="mail.yahoo."] ul { color: red; } */
 
 pre, code {
+  font-family: Avenir, "PingFangSC-Light";
+
 }
 
 code {
@@ -63,6 +65,7 @@ Note that we only use a top margin and not a bottom margin -- this prevents the
 p{
   /* !important is needed here because Hotmail/Outlook.com uses !important to
      kill the margin in <p>. We need this to win. */
+  font-family: Avenir, "PingFangSC-Light" !important;
   font-size: 15px !important;
   color: #333 !important;
   line-height: 1.8em !important;
@@ -83,6 +86,7 @@ ul, ol {
 
 li{
   margin: 0.2em 0;
+  font-family: Avenir, "PingFangSC-Light" !important;
   font-size: 15px !important;
   color: #333 !important;
   line-height: 1.8em !important;
@@ -92,6 +96,7 @@ li{
 
 ul li {
   margin: 0.2em 0;
+  font-family: Avenir, "PingFangSC-Light" !important;
   font-size: 15px !important;
   color: #333 !important;
   line-height: 1.8em !important;
@@ -196,6 +201,7 @@ table {
   border-spacing: 0;
   font-size: .8em;
   border: 0;
+  font-family: Avenir, "PingFangSC-Light";
 }
 
 tbody {
