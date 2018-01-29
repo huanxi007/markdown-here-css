@@ -29,7 +29,7 @@ code {
   padding: 0.2em 0.5em;
   color:#c7254e;
   font-size: 0.9em;
-  border-radius: 2px;
+  border-radius: 3px;
   display: inline; /* added to fix Yahoo block display of inline code */
   white-space: pre-wrap;
 }
