@@ -1,3 +1,4 @@
+
 /*
  * NOTE:
  * - The use of browser-specific styles (-moz-, -webkit-) should be avoided.
@@ -27,7 +28,7 @@ pre, code {
 code {
   background-color: #f8f8f8;
   padding: 0.2em 0.5em;
-  color:#c7254e;
+  color:#1fcb27;
   font-size: 0.9em;
   border-radius: 2px;
   display: inline; /* added to fix Yahoo block display of inline code */
@@ -70,7 +71,7 @@ p{
   color: #333 !important;
   line-height: 1.8em !important;
   letter-spacing: 0.1em !important;
-  margin: 1em 1em !important; /* 增加段落边距 */
+  margin: 2em 2em !important; /* 增加段落边距 */
   text-align: justify !important;
 }
 
@@ -136,7 +137,7 @@ dl dd {
 }
 
 blockquote, q {
-  border-left: 4px solid #3bb8af;
+  border-left: 4px solid #1fcb27;
   /* background-color: #fafafa;*/
   padding: 0em; /* 删除内边距 */
   margin: 0em 1em;
@@ -146,13 +147,13 @@ blockquote, q {
 
 
 strong, b{
-  color: #3bb8af;
+  color: ##696969;
 }
 
 
 /* 设置引用文本颜色 */
 blockquote p {
-  color: rgb(119, 117, 117) !important
+  color:rgb(119, 117, 117)!important
 }
 
 blockquote::before, blockquote::after, q::before, q::after {
@@ -164,6 +165,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   font-weight: bold;
   letter-spacing: 0.1em !important;
+  color:#1fcb27;
+
 }
 
 h1 {
@@ -174,9 +177,7 @@ h1 {
 
 h2 {
   font-size: 1.4em;
-  text-align: center;
-  border-bottom: 1px solid #eee;
-  color: #3bb8af;
+  color: #1fcb27;;
 }
 
 h3 {
@@ -217,6 +218,22 @@ table tr {
   margin: 0;
   padding: 0;
 
+}
+
+table tr:nth-child(2n) {
+  background-color: #F8F8F8;
+}
+
+table tr th, table tr td {
+  font-size: 0.8em;
+  border: 1px solid #CCC;
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
+table tr th {
+ font-weight: bold;
+ background-color: #F0F0F0;
 }
 
 table tr:nth-child(2n) {
